@@ -22,7 +22,7 @@ func trans_in(speed:float = 0.7, call_func:bool = false) -> void:
 	_out = false
 	start()
 
-	tween.tween_property(hole, 'scale', Vector2(15, 15), speed)
+	tween.tween_property(hole, 'scale', Vector2(15, 15), speed*Prefs.transition_speed)
 	get_tree().create_timer(speed, false).timeout.connect(func():
 		in_progress = false
 		finished.emit(1)
@@ -37,7 +37,7 @@ func trans_out(speed:float = 0.7, call_func:bool = false) -> void:
 	start()
 	if cur_tex == 'bowser': speed = 2
 
-	tween.tween_property(hole, 'scale', Vector2(0, 0), speed)
+	tween.tween_property(hole, 'scale', Vector2(0, 0), speed*Prefs.transition_speed)
 	await tween.finished
 	in_progress = false
 	finished.emit(0)

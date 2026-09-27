@@ -25,6 +25,7 @@ var gameplay = [
 var visuals = [
 	['fps',             'int', [0, 480]],
 	['skip_transitions', 'bool'],
+	['transition_speed', 'float', [0,2],0.1],
 	['allow_rpc',      'bool'],
 	['basic_play',     'bool'],
 	['quants'    ,     'bool'],
@@ -87,6 +88,7 @@ func _unhandled_key_input(event:InputEvent) -> void:
 		if da_pref.type == 'bool' and Input.is_action_just_pressed('accept'):
 			da_pref.update_option()
 		if event.is_action_pressed('back'): show_main()
+		return
 	else:
 		if event.is_action_pressed('menu_left'): update_scroll(-1)
 		if event.is_action_pressed('menu_right'): update_scroll(1)

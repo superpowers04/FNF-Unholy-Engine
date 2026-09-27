@@ -28,6 +28,7 @@ var fps:int = 60:
 
 var auto_pause:bool = true
 var skip_transitions:bool = false
+var transition_speed:float = 1
 var basic_play:bool = false
 var allow_rpc:bool = true:
 	set(allow):
